@@ -48,7 +48,7 @@ void main_menu(){
         printf("1. View Daily Schedule\n");
         printf("2. Make a Reservation\n");
         printf("3. Cancel a Reservation\n");
-        printf("4. Edit reservation\n");
+        printf("4. Edit Reservation\n");
         printf("5. Search Reservations\n");
         printf("6. Exit\n");
         printf("Enter your choice: ");
@@ -257,11 +257,11 @@ void make_reservation(){
         if (strlen(student_num) != 10 || 
             strspn(student_num, "0123456789") != 8 || 
             student_num[8] != '-' || 
-            !isalnum((unsigned char)student_num[9])) {
+            !isalpha((unsigned char)student_num[9])) {// ALPHABET CHECK
             printf("Invalid student number.\n");
             pause_screen();
             continue;
-        }
+        } 
         valid = 1;
     } while (!valid);
 
@@ -344,12 +344,9 @@ void make_reservation(){
             pause_screen();
             return;
         }
-        
-        time_t t = time(NULL); // Grabs current time and stores it in variable t
-        struct tm *today = localtime(&t); // Converts t to localtime as structure broken down to year month day
-        int current_day = today->tm_mday; // Gives the current day of the month (1-31)
+
         day = atoi(input_buffer);
-        if(day < current_day) {
+        if(day < 1 || day > mday) {
             printf("Invalid day for chosen month. Please try again.\n");
             pause_screen();
             continue;
@@ -537,7 +534,6 @@ void generate_reservation_id(char* out_id, size_t out_size, const char* reservat
     snprintf(out_id, out_size, "%s-%s-%s", today_str, res_date_str, timestamp_str);
 }
 
-
 void cancel_reservation(){
     //cancel logic here
     int choice;
@@ -567,7 +563,6 @@ void cancel_reservation(){
             printf("Enter Reservation ID (to cancel operation, input 'cancel' to go back): ");
             if (scanf("%29s", reservation_id) != 1) {
                 clear_input_buffer();
-                printf("Invalid input. Please try again.\n");
                 pause_screen();
                 continue;
             }
