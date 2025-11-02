@@ -127,6 +127,22 @@ int validate_date_for_viewing(const char* date){
 int validate_time(const char* time) {
     // Expected format: HH:MM AM/PM
     if (strlen(time) < 6 || strlen(time) > 8) {
+    // Short format [4pm, 6:30am, 11AM, 08:30PM etc]
+    if (strchr(time, ':') == NULL) {
+        int hour;
+        char meridian[3];
+        if (sscanf(time, "%d%2s", &hour, meridian) == 2) {
+    // Validate hour and AM/PM
+        if (hour >= 1 && hour <= 12 && 
+        (strcmp(meridian, "AM") == 0 || strcmp(meridian, "PM") == 0)) {    
+    // Convert to full format [HH:00AM/HH:00PM]
+        char formatted[10];
+        sprintf(formatted, "%02d:00%s", hour, meridian);
+        strcpy((char*)time, formatted);
+        return 1;
+            }
+        }
+    }
         return 0; // Invalid length
     }
     
