@@ -1049,7 +1049,7 @@ void edit_reservation(){
                         int result = update_reservation(reservation_id, student_name, student_num, 
                                                        date, start_time, end_time, consultation_room);
                         if (result == 0) {
-                            printf("\nReservation '%s' successfully updated.\n", reservation_id);
+                            //printf("\nReservation '%s' successfully updated.\n", reservation_id);
                         } else {
                             printf("\nFailed to update reservation.\n");
                         }
