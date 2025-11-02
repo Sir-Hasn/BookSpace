@@ -244,12 +244,3 @@ int compare_times(const char* time1, const char* time2) {
     }
     return minute1 - minute2;
 }
-/* validation and time-related logic.
-DONE: validate_date(date): Checks if the date is in the correct format (MM/DD/YYYY).
-DONE: validate_time(time): Checks if the time is in the correct format (HH:MM AM/PM).
-DONE: validate_time_range(start_time, end_time): Ensures the end time is after the start time.
-DONE: check_time_conflict(date, start_time, end_time): Checks if the requested time slot overlaps with existing reservations.
-DONE: format_time_24hour(time): Converts time to 24-hour format (if needed).
-DONE: format_time_12hour(time): Converts time to 12-hour format (if needed).
-DONE: compare_times(start, end): Compares two time strings.
-*/

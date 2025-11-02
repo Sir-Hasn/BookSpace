@@ -3,7 +3,8 @@
         "reservation.h": "c",
         "stdio.h": "c",
         "stdlib.h": "c",
-        "sqlite3.h": "c"
+        "sqlite3.h": "c",
+        "ctype.h": "c"
     },
     "todo-tree.tree.scanMode": "open files"
 }

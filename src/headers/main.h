@@ -20,12 +20,15 @@ void view_daily_schedule();
 void make_reservation();
 void cancel_reservation();
 void search_reservations();
+void edit_reservation();
+void exit_program();
 void clear_screen();
 void pause_screen();
 
 // Utils
 void clear_input_buffer();
 void generate_reservation_id(char* out_id, size_t out_size, const char* reservation_date);
+int check_cancel_string(const char* input);
 
 // Missing declarations
 int validate_date(const char* date);
