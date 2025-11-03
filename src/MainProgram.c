@@ -777,13 +777,13 @@ void edit_reservation(){
                         }
 
                         if (strlen(student_num) != 10 || 
-                            strspn(student_num, "0123456789") != 8 || 
-                            student_num[8] != '-' || 
-                            !isalnum((unsigned char)student_num[9])) {
-                            printf("Invalid student number format.\n");
-                            pause_screen();
-                            continue;
-                        }
+            strspn(student_num, "0123456789") != 8 || 
+            student_num[8] != '-' || 
+            !isalpha((unsigned char)student_num[9])) {// ALPHABET CHECK
+            printf("Invalid student number.\n");
+            pause_screen();
+            continue;
+        } 
                         valid = 1;
                     } while (!valid);
                     
