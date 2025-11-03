@@ -44,7 +44,7 @@ int validate_date(const char* date) {
     // Basic validation
     if (month < 1 || month > 12) return 0;
     if (day < 1 || day > 31) return 0;
-    if (year < current_year || year > current_year + 5) return 0; // Reasonable year range
+    if (year < current_year || year > current_year + 5) return 0;
     
 
     // Check days in month

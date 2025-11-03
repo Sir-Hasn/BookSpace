@@ -590,6 +590,7 @@ void cancel_reservation(){
                 printf("\nNo reservation found with ID '%s'.\n", reservation_id);
                 printf("Please check the ID and try again.\n\n");
                 pause_screen();
+                clear_screen();
                 continue; // Ask again
             } else if (exists == -1) {
                 printf("Database error occurred.\n");
@@ -703,7 +704,7 @@ void edit_reservation(){
                     printf("|----------------------|------------|-----------------|------------|------------|---------------------------|\n");
                     get_reservations_by_id(reservation_id);
                     printf("|----------------------|------------|-----------------|------------|------------|---------------------------|\n");
-            
+                    printf("\nPress Enter to continue...");
                     clear_input_buffer();
 
                     // GET NEW DETAILS AND VALIDATE THEM
