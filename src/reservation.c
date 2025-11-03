@@ -9,7 +9,7 @@
 int validate_date(const char* date) {
 
     // Check if date is in the past
-    time_t t = time(NULL); // Grabs current time and stores it in variable t
+    time_t t = time(NULL); // gets current time and stores it in variable t
     struct tm *today = localtime(&t); // Converts t to localtime as structure broken down to year month day
     
     // Extract the current year, month, and day numbers from today
@@ -31,7 +31,7 @@ int validate_date(const char* date) {
     for (int i = 0; i < 10; i++) {
         if (i == 2 || i == 5) continue; // Skip separators
         if (date[i] < '0' || date[i] > '9') {
-            return 0; // Non-digit character
+            return 0; // Invalid
         }
     }
     
@@ -72,7 +72,7 @@ int validate_date(const char* date) {
 int validate_date_for_viewing(const char* date){
 
     // Check if date is in the past
-    time_t t = time(NULL); // Grabs current time and stores it in variable t
+    time_t t = time(NULL); // gets current time and stores it in variable t
     struct tm *today = localtime(&t); // Converts t to localtime as structure broken down to year month day
     
     // Extract the current year, month, and day numbers from today
@@ -95,7 +95,7 @@ int validate_date_for_viewing(const char* date){
     for (int i = 0; i < 10; i++) {
         if (i == 2 || i == 5) continue; // Skip separators
         if (date[i] < '0' || date[i] > '9') {
-            return 0; // Non-digit character
+            return 0; // Invalid
         }
     }
     
