@@ -1,4 +1,4 @@
-# Library Reservation System [CASE STUDY - CS 1A]
+# Library Reservation System [STRICTLY: PURE C]
 
 A console-based reservation system designed to help librarians efficiently manage library reservation bookings.
 
@@ -48,7 +48,6 @@ library-reservation-system/
 │       └── reservations.h       # Reservation structure definitions
 ├── data/
 │   └── library_reservations.db  # SQLite database file (auto-generated)
-├── Makefile                     # Build configuration
 └── README.md                    # This file
 ```
 
