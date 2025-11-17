@@ -82,7 +82,7 @@ A console-based reservation management system built in **Pure C** for managing l
 
 #### Windows (MSYS2 UCRT64)
 ```bash
-cd "/c/Users/Shan Ricz/Desktop/Library Reservation"
+cd "/c/Users/User/""/Library Reservation"
 gcc -std=c11 -Wall -Wextra -I src/headers -I src \
     src/MainProgram.c src/db.c src/reservation.c src/utilities.c src/sqlite3.c \
     -o LibraryReservation.exe
