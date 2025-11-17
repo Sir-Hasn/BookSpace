@@ -227,7 +227,23 @@ void make_reservation(){
             pause_screen();
             continue;
         }
+
+        //ASSUME VALID FOR NOW FOR CHECKING PURPOSES
         valid = 1;
+
+        //ITERATE THROUGH EACH CHARACTER TO CHECK IF VALID
+        for (int i = 0; i < strlen(student_name); i++) {
+
+            // Check if the character is NOT an alphabet AND NOT a space
+            if (!isalpha((unsigned char)student_name[i]) && student_name[i] != ' ') {
+
+                printf("Name must contain only alphabetic characters and spaces. Please try again.\n");
+                pause_screen();
+                valid = 0; // Set invalid flag
+                break;     // Stop checking the rest of the characters
+            }
+            
+        }
     } while (!valid);
 
     // Step 3: Student number
@@ -401,6 +417,17 @@ void make_reservation(){
             pause_screen();
             continue;
         }
+
+        if (outside_time_bounds(start_time)){
+            pause_screen();
+            continue;
+        }
+
+        if (outside_time_bounds(end_time)){
+            pause_screen();
+            continue;
+        }
+
         valid = 1;
     } while (!valid);
 

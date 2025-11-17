@@ -125,21 +125,24 @@ int validate_date_for_viewing(const char* date){
 }
 
 int validate_time(const char* time) {
+    int openTime = 8;  // 8:00 AM
+    int closeTime = 20; // 8:00 PM
+
     // Expected format: HH:MM AM/PM
     if (strlen(time) < 6 || strlen(time) > 8) {
     // Short format [4pm, 6:30am, 11AM, 08:30PM etc]
-    if (strchr(time, ':') == NULL) {
-        int hour;
-        char meridian[3];
-        if (sscanf(time, "%d%2s", &hour, meridian) == 2) {
-    // Validate hour and AM/PM
-        if (hour >= 1 && hour <= 12 && 
-        (strcmp(meridian, "AM") == 0 || strcmp(meridian, "PM") == 0)) {    
-    // Convert to full format [HH:00AM/HH:00PM]
-        char formatted[10];
-        sprintf(formatted, "%02d:00%s", hour, meridian);
-        strcpy((char*)time, formatted);
-        return 1;
+        if (strchr(time, ':') == NULL) {
+            int hour;
+            char meridian[3];
+                if (sscanf(time, "%d%2s", &hour, meridian) == 2) {
+                // Validate hour and AM/PM
+                    if (hour >= 1 && hour <= 12 && 
+                        (strcmp(meridian, "AM") == 0 || strcmp(meridian, "PM") == 0)) {    
+                        // Convert to full format [HH:00AM/HH:00PM]
+                        char formatted[10];
+                        sprintf(formatted, "%02d:00%s", hour, meridian);
+                        strcpy((char*)time, formatted);
+                        return 1;
             }
         }
     }
@@ -259,4 +262,19 @@ int compare_times(const char* time1, const char* time2) {
         return hour1 - hour2;
     }
     return minute1 - minute2;
+}
+
+int outside_time_bounds(const char* time) {
+    // Check if time is outside library hours (8:00 AM to 8:00 PM)
+    char time_24[MAX_TIME_LENGTH];
+    format_time_24hour((char*)time, time_24);
+    
+    int hour, minute;
+    sscanf(time_24, "%d:%d", &hour, &minute);
+    
+    if (hour < 8 || (hour >= 20)) {
+        printf("Error: Time must be between 8:00 AM and 8:00 PM.\n");
+        return 1; // Outside bounds
+    }
+    return 0; // Within bounds
 }

@@ -29,6 +29,7 @@ void pause_screen();
 void clear_input_buffer();
 void generate_reservation_id(char* out_id, size_t out_size, const char* reservation_date);
 int check_cancel_string(const char* input);
+int outside_time_bounds(const char* time);
 
 // Missing declarations
 int validate_date(const char* date);
