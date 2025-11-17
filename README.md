@@ -1,4 +1,4 @@
-# Library Reservation System [STRICTLY: PURE C]
+# Library Reservation System
 
 A console-based reservation system designed to help librarians efficiently manage library reservation bookings.
 
