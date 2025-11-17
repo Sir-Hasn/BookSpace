@@ -401,7 +401,7 @@ The system uses `clear_input_buffer()` to handle newline characters left in the 
 
 ## License
 
-This project is created for educational purposes as part of a case study framework.
+This project is created for educational purposes only.
 
 ---
 
