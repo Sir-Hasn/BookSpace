@@ -1,4 +1,4 @@
-# Library Consultation Room Reservation System
+# BookSpace: A simple Library Room Management System
 
 A console-based reservation management system built in **Pure C** for managing library consultation room bookings. This system helps librarians efficiently handle room reservations with conflict detection, validation, and persistent data storage using SQLite.
 
