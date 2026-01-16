@@ -1,6 +1,0 @@
-Structure:
-MainProgram.c: Handle user interaction and menu navigation.
-db.c: Implement all database CRUD operations.
-reservation.c: Implement input validation and time conflict logic.
-utilities.c: Add any helper functions you need for formatting, input, etc.
-headers/: Create header files for each module to declare functions and share constants/macros.
